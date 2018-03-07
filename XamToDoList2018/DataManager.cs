@@ -16,7 +16,7 @@ namespace XamToDoList2018
 
         static DataManager()
         {
-            databaseName = "todolist.sqlite3";
+            databaseName = "todolist.sqlite";
             databasePath = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.ToString(), databaseName);
 
             db = new SQLiteConnection(databasePath);
