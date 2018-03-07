@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/list_selector"
     android:padding="5dip">
     <TextView
         android:id="@+id/tvId"
@@ -30,7 +31,8 @@
         android:layout_below="@id/lbltitle" />
     <ImageView
         android:layout_width="30dp"
-        android:layout_height="70dp"
-       android:layout_alignParentRight="true"
+        android:layout_height="70dp"        
+      android:src="@drawable/arrowright"
+        android:layout_alignParentRight="true"
         android:layout_centerVertical="true" />
 </RelativeLayout>
