@@ -1,9 +1,11 @@
 ﻿using SQLite;
 using System;
+using System.Collections;
+using System.Linq;
 
 namespace XamToDoList2018
 {
-    public class tblToDoList
+    public class tblToDo
     {
         [PrimaryKey, AutoIncrement]  //These are attributes that define the property below it
         public int Id { get; set; }
@@ -12,10 +14,9 @@ namespace XamToDoList2018
         public string Details { get; set; }
         public DateTime Date { get; set; }
 
-        public tblToDoList()
+        public tblToDo()
         {
         }
-
 
     }
 }

@@ -41,7 +41,7 @@ namespace XamToDoList2018
             btnEdit.Click += OnBtnEditClick;
             btnDelete.Click += OnBtnDeleteClick;
 
-            ListId = Intent.GetIntExtra("ListID", 0);
+            ListId = Intent.GetIntExtra("ListID", 0); //0 is default
             Details = Intent.GetStringExtra("Details");
             Title = Intent.GetStringExtra("Title");
 

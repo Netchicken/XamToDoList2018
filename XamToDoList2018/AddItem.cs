@@ -12,13 +12,13 @@ using Android.Widget;
 
 namespace XamToDoList2018
 {
-    [Activity(Label = "ToDoList")]
+    [Activity(Label = "ToDo List")]
     public class AddItem : Activity
     {
         Button btnAdd;
         EditText txtItemDescription;
         EditText txtItemTitle;
-        private tblToDoList myDoList;
+        private tblToDo myDoList;
 
         //   DatabaseManager objdb = new DatabaseManager();
 
@@ -31,7 +31,9 @@ namespace XamToDoList2018
 
             btnAdd = FindViewById<Button>(Resource.Id.btnAdd);
             txtItemTitle = FindViewById<EditText>(Resource.Id.txtItemTitle);
-            txtItemDescription = (EditText)myDoList.Details; //FindViewById<EditText> (Resource.Id.txtItemDescription);
+            txtItemDescription = FindViewById<EditText>(Resource.Id.txtItemDescription);
+                
+                //(EditText)myDoList.Details; //FindViewById<EditText> (Resource.Id.txtItemDescription);
 
             btnAdd.Click += OnBtnAddClick;
         }

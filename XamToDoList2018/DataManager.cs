@@ -16,22 +16,33 @@ namespace XamToDoList2018
 
         static DataManager()
         {
-            databaseName = "todolist.sqlite";
+            databaseName = "ToDoDB.sqlite";
             databasePath = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.ToString(), databaseName);
 
             db = new SQLiteConnection(databasePath);
         }
 
-        public static List<tblToDoList> ViewAll()
+        public static List<tblToDo> ViewAll()
         {
             try
             {
-                return db.Query<tblToDoList>("select * from tblToDoList");
+                return db.Query<tblToDo>("select * from tblToDo");
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error:" + e.Message);
-                return null;
+
+                //making some fake items to stop the system from crashing when the DB doesn't connect
+                List<tblToDo> fakeitem = new List<tblToDo>();
+                //make a single item
+                tblToDo item = new tblToDo();
+                item.Id = 100;
+                item.Date = DateTime.Now.Date;
+                item.Details = "There are no items";
+                item.Title = "No Items";
+                fakeitem.AddRange(new[] { item }); //add it to the fake item list
+
+                return fakeitem;
             }
         }
 
@@ -39,8 +50,8 @@ namespace XamToDoList2018
         {
             try
             {
-                var AddThis = new tblToDoList() { Title = title, Details = details };
-                db.Insert(AddThis);
+                var addThis = new tblToDo() { Title = title, Details = details };
+                db.Insert(addThis);
             }
             catch (Exception e)
             {
@@ -54,7 +65,7 @@ namespace XamToDoList2018
             {
                 // http://stackoverflow.com/questions/14007891/how-are-sqlite-records-updated 
 
-                var EditThis = new tblToDoList() { Title = title, Details = details, Id = listid };
+                var EditThis = new tblToDo() { Title = title, Details = details, Id = listid };
 
                 db.Update(EditThis);
 
@@ -74,7 +85,7 @@ namespace XamToDoList2018
             // https://developer.xamarin.com/guides/cross-platform/application_fundamentals/data/part_3_using_sqlite_orm/ 
             try
             {
-                db.Delete<tblToDoList>(listid);
+                db.Delete<tblToDo>(listid);
             }
             catch (Exception ex)
             {

@@ -11,7 +11,10 @@
         android:hint="Enter Title"
         android:layout_weight="0.5"
         android:layout_gravity="center_horizontal"
-        android:gravity="center_vertical" />
+        android:gravity="center_vertical"
+        android:textColor="@android:color/holo_green_light"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="0.0dp" />
     <EditText
         android:inputType="textMultiLine"
         android:layout_width="match_parent"
@@ -22,7 +25,9 @@
         android:hint="Enter Details"
         android:textAlignment="gravity"
         android:gravity="top"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"
+        android:textColor="@android:color/background_dark"
+        android:background="@drawable/gradient_bg_hover" />
     <Button
         android:text="Add"
         android:layout_width="match_parent"

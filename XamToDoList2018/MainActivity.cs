@@ -14,7 +14,7 @@ namespace XamToDoList2018
     public class MainActivity : Activity
     {
         ListView lstToDoList;
-        List<tblToDoList> myList;
+        List<tblToDo> myList;
 
         //  string dbName = "ToDoList.sqlite";
         //  String dbPath = Path.Combine(Android.OS.Environment.ExternalStorageDirectory.ToString(), dbName);
@@ -48,18 +48,18 @@ namespace XamToDoList2018
             if (!File.Exists(DataManager.databasePath))
             {
                 using (BinaryReader br = new BinaryReader(Assets.Open(DataManager.databaseName)))
+            {
+                using (BinaryWriter bw = new BinaryWriter(new FileStream(DataManager.databasePath, FileMode.Create)))
                 {
-                    using (BinaryWriter bw = new BinaryWriter(new FileStream(DataManager.databasePath, FileMode.Create)))
+                    byte[] buffer = new byte[2048];
+                    int len = 0;
+                    while ((len = br.Read(buffer, 0, buffer.Length)) > 0)
                     {
-                        byte[] buffer = new byte[2048];
-                        int len = 0;
-                        while ((len = br.Read(buffer, 0, buffer.Length)) > 0)
-                        {
-                            bw.Write(buffer, 0, len);
-                        }
+                        bw.Write(buffer, 0, len);
                     }
                 }
             }
+        }
         } //this is just to save space should inflate out when run.
 
         void OnLstToDoListClick(object sender, AdapterView.ItemClickEventArgs e)

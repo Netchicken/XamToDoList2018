@@ -12,24 +12,37 @@ using Android.Widget;
 
 namespace XamToDoList2018
 {
-    class DataAdapter : BaseAdapter<tblToDoList>
+    class DataAdapter : BaseAdapter<tblToDo>
     {
         private readonly Activity context;
 
-        private readonly List<tblToDoList> items;
+        private readonly List<tblToDo> items;
 
-        public DataAdapter(Activity context, List<tblToDoList> items)
+        public DataAdapter(Activity context, List<tblToDo> items)
         {
             this.context = context;
-            this.items = items;
+            if (items.Count != 0)
+            {
+                this.items = items;
+            }
+            else
+            {
+
+
+            }
+
+
         }
 
-        public override tblToDoList this[int position] {
+
+        public override tblToDo this[int position] {
             get { return items[position]; }
         }
 
         public override int Count {
-            get { return items.Count; }
+            get {
+                return items.Any() ? items.Count : 0;
+            }
         }
 
         public override long GetItemId(int position)
