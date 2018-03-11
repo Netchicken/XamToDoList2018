@@ -18,10 +18,7 @@ namespace XamToDoList2018
         Button btnAdd;
         EditText txtItemDescription;
         EditText txtItemTitle;
-        private tblToDo myDoList;
-
-        //   DatabaseManager objdb = new DatabaseManager();
-
+      
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);

@@ -21,17 +21,7 @@ namespace XamToDoList2018
         public DataAdapter(Activity context, List<tblToDo> items)
         {
             this.context = context;
-            if (items.Count != 0)
-            {
-                this.items = items;
-            }
-            else
-            {
-
-
-            }
-
-
+            this.items = items;
         }
 
 
@@ -41,7 +31,7 @@ namespace XamToDoList2018
 
         public override int Count {
             get {
-                return items.Any() ? items.Count : 0;
+                return items.Count;
             }
         }
 
