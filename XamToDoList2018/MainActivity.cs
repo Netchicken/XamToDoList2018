@@ -26,7 +26,7 @@ namespace XamToDoList2018
             lstToDoList = FindViewById<ListView>(Resource.Id.listView1);
 
             //if the DB is not there copy it to the Assets folder place
-            DataManager.CopyTheDB();
+            //DataManager.CopyTheDB();
 
 
             myList = DataManager.ViewAll();
