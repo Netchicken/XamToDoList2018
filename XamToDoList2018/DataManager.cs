@@ -100,30 +100,6 @@ namespace XamToDoList2018
                 Console.WriteLine("Delete Error:" + ex.Message);
             }
         }
-
-
-        //public static void CopyTheDB()
-        //{
-        //    // Check if your DB has already been extracted. If the file does not exist move it. 
-        //    //WARNING!!!!!!!!!!! If your DB changes from the first time you install it, ie: you change the tables, and you get errors then comment out the if wrapper so that it is FORCED TO UPDATE. Otherwise you spend hours staring at code that should run OK but the db, that you can’t see inside of on your phone, is diffferent from the db you are coding to.   
-        //    if (!File.Exists(databasePath))
-        //    {
-        //        AssetManager Assets = Android.App.Application.Context.Assets;
-        //        using (BinaryReader br = new BinaryReader(Assets.Open(databaseName)))
-        //        {
-        //            using (BinaryWriter bw = new BinaryWriter(new FileStream(databasePath, FileMode.Create)))
-        //            {
-        //                byte[] buffer = new byte[2048];
-        //                int len = 0;
-        //                while ((len = br.Read(buffer, 0, buffer.Length)) > 0)
-        //                {
-        //                    bw.Write(buffer, 0, len);
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
-
     }
 
 

@@ -20,14 +20,11 @@ namespace XamToDoList2018
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Set our view from the "main" layout resource
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState); // add this line to your code
+                                                                        //...
+                                                                        // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
             lstToDoList = FindViewById<ListView>(Resource.Id.listView1);
-
-            //if the DB is not there copy it to the Assets folder place
-            //DataManager.CopyTheDB();
-
 
             myList = DataManager.ViewAll();
             lstToDoList.Adapter = new DataAdapter(this, myList);
@@ -73,6 +70,16 @@ namespace XamToDoList2018
             base.OnResume();
             myList = DataManager.ViewAll();
             lstToDoList.Adapter = new DataAdapter(this, myList);
+        }
+
+        //added for Xam Essentials
+        // https://docs.microsoft.com/en-gb/xamarin/essentials/get-started?tabs=windows%2Candroid
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [Android.Runtime.GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 
